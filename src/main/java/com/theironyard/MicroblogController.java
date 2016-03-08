@@ -25,6 +25,9 @@ public class MicroblogController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(HttpSession session, String userName){
         session.setAttribute("userName", userName);
+        if (userName.equals("")){
+            return "redirect:/login";
+        }
         return "redirect:/";
 
     }
