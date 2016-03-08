@@ -1,6 +1,6 @@
 <html>
 <body>
-{{#userName}} Messages by {{.}}!{{/userName}}
+{{#userName}} Messages by {{.}}.{{/userName}}
 
 {{^userName}}
 <form action="/login" method="post">
@@ -9,10 +9,15 @@
 </form>
 {{/userName}}
 
-<form action="/Messages" method="post">
+<form action="/message" method="post">
     <input type = "text" placeholder="Enter a message." name="message"/>
     <button type="submit">Submit</button>
-
+   <ol> {{#message}}
+    {{message}}
+    <form action="/delete" method="post">
+        <button type="submit">Delete</button>
+    </form>
+    {{/message}}</ol>
 </form>
 </body>
 </html>

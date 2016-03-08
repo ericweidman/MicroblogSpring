@@ -29,11 +29,13 @@ public class MicroblogController {
             return "redirect:/login";
         }
         return "redirect:/";
-
     }
-    @RequestMapping(path = "/message", method = RequestMethod.GET)
-    public String message(Model model, HttpSession session) {
-        model.addAttribute("message", session.getAttribute("message"));
+    @RequestMapping(path = "/message", method = RequestMethod.POST)
+    public String message(HttpSession session, String message) {
+        session.setAttribute("messages", session.getAttribute("messages"));
+        Message message1 = new Message(message);
+        messages.add(message1);
+
         return "redirect:/";
     }
     @RequestMapping(path = "/delete", method = RequestMethod.POST)
@@ -42,5 +44,4 @@ public class MicroblogController {
         messages.remove(id - 1);
         return "redirect:/";
     }
-
 }
