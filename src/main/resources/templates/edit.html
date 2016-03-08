@@ -1,0 +1,12 @@
+<html>
+<body>
+{{#messages}}
+{{id}} - {{messageText}}
+<form action="/update-message" method="post">
+    <input type="text" placeholder="Edit Message" name="userEdit"/>
+    <input type="hidden" value="{{id}}" name="id"/>
+    <button type="submit">Update</button>
+</form>
+{{/messages}}
+</body>
+</html>
