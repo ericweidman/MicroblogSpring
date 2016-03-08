@@ -1,4 +1,3 @@
-
 <html>
 <body>
 {{^userName}}
@@ -13,16 +12,20 @@
     <input type="text" placeholder="Enter your message" name="text"/>
     <button type="submit">Submit</button>
 </form>
+
 Messages by {{.}}:
+<br/>
 <ol>
     {{#messages}}
-    <li>{{messageText}}</li>
     <form action="/delete-message" method="post">
+        <li>
+    {{messageText}}
         <input type="hidden" name="id" value="{{id}}"/>
         <button type="submit">Delete</button>
-    </form>
+        </li>
+        </form>
     {{/messages}}
-</ol>
+    </ol>
 {{/userName}}
 </body>
 </html>

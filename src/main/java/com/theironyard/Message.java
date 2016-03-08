@@ -19,10 +19,6 @@ public class Message {
 
     }
 
-    public Message(int id) {
-        this.id = id;
-    }
-
     public Message(String messageText) {
         this.messageText = messageText;
     }
