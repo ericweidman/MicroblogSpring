@@ -5,10 +5,10 @@ package com.theironyard;
  */
 public class Message {
     int id;
-    String text;
+    String message;
 
-    public Message( String text) {
+    public Message( String message) {
         this.id = id;
-        this.text = text;
+        this.message = message;
     }
 }

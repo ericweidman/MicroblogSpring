@@ -20,6 +20,7 @@ public class MicroblogController {
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String home(Model model, HttpSession session){
         model.addAttribute("userName", session.getAttribute("userName"));
+        model.addAttribute("message", messages);
         return "home";
     }
     @RequestMapping(path = "/login", method = RequestMethod.POST)
@@ -41,7 +42,7 @@ public class MicroblogController {
     @RequestMapping(path = "/delete", method = RequestMethod.POST)
     public String delete(HttpSession session, int id){
         session.setAttribute("delete", id);
-        messages.remove(id - 1);
+        messages.remove(messages.size() - 1);
         return "redirect:/";
     }
 }
