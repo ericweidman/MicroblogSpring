@@ -31,9 +31,16 @@ public class MicroblogController {
         return "redirect:/";
 
     }
-    @RequestMapping(path = "/add-message", method = RequestMethod.GET)
+    @RequestMapping(path = "/message", method = RequestMethod.GET)
     public String message(Model model, HttpSession session) {
         model.addAttribute("message", session.getAttribute("message"));
         return "redirect:/";
     }
+    @RequestMapping(path = "/delete", method = RequestMethod.POST)
+    public String delete(HttpSession session, int id){
+        session.setAttribute("delete", id);
+        messages.remove(id - 1);
+        return "redirect:/";
+    }
+
 }
