@@ -33,8 +33,8 @@ public class MicroblogController {
         return "redirect:/";
     }
     @RequestMapping(path = "/add-message", method = RequestMethod.POST)
-    public String message(HttpSession session, String message) {
-        session.setAttribute("messages", session.getAttribute("messages"));
+    public String addMessage(HttpSession session, String message) {
+        session.setAttribute("message", session.getAttribute("message"));
 
         return "redirect:/";
     }
