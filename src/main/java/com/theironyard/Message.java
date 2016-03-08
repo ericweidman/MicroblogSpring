@@ -13,12 +13,17 @@ public class Message {
     @Id
     @GeneratedValue
     int id;
-    String message;
+    String messageText;
 
-    public Message() {
+    public Message(){
+
     }
 
-    public Message(String message) {
-        this.message = message;
+    public Message(int id) {
+        this.id = id;
+    }
+
+    public Message(String messageText) {
+        this.messageText = messageText;
     }
 }
